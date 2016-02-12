@@ -6,22 +6,18 @@
  * 
  */
 
+var vsphere    = require('../lib');
 var restify    = require('restify');
 var server     = restify.createServer();
 server.use(restify.queryParser());
 
-var vsphere = require('../lib');
+// set the options
+vsphere.options({
+	ignoreSSL: true,
+	exclusive: true
+});
 
-vsphere.ignoreSSL = true;
-vsphere.exclusive = true;
-
-/* manually create routes
-server.get('/:viserver/:type', vsphere.get);
-server.get('/:viserver/:type/:id', vsphere.get);
-server.del('/:viserver/:type/:id', vsphere.del);
-*/
-
-// or add all available routes
+// use the route generator to add all routes
 vsphere.addRoutes(server);
 
 // start the server

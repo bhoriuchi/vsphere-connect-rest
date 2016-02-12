@@ -5,30 +5,29 @@
  * @license MIT
  * 
  */
-
+var vsphere    = require('../lib');
 var express    = require('express');
 var server     = express();
-
-var vsphere = require('../lib');
 
 // optionally set a credential to bypass basic auth
 //vsphere.setCredential('administrator@vsphere.local', 'password');
 
-// optionally override the default request params. default values are the key names
-var newParams = {
-	viserver: 'myViserver',
-	type: 'myType',
-	id: 'myId',
-	method: 'myMethod'
-};
-
-vsphere.setParams(newParams);
-vsphere.ignoreSSL = true;
+//set the options
+vsphere.options({
+	ignoreSSL: true,
+	exclusive: true,
+	params: {
+		viserver: 'myViserver',
+		type: 'myType',
+		id: 'myId',
+		method: 'myMethod'
+	}
+});
 
 // create routes
 server.get('/:myViserver/:myType', vsphere.get);
 server.get('/:myViserver/:myType/:myId', vsphere.get);
-server.delete('/:myViserver/:myType/:myId', vsphere.del);
+server['delete']('/:myViserver/:myType/:myId', vsphere.del);
 
 
 // start the server
