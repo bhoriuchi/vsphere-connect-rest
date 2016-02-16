@@ -10,6 +10,7 @@ var vsphere    = require('../lib');
 var restify    = require('restify');
 var server     = restify.createServer();
 server.use(restify.queryParser());
+server.use(restify.bodyParser());
 
 // set the options
 vsphere.options({

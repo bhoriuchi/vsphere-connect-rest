@@ -7,7 +7,10 @@
  */
 var vsphere    = require('../lib');
 var express    = require('express');
+var bodyParser = require('body-parser');
 var server     = express();
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: true }));
 
 // optionally set a credential to bypass basic auth
 //vsphere.setCredential('administrator@vsphere.local', 'password');
