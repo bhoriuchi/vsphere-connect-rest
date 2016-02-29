@@ -17,14 +17,14 @@
     "url": "https://github.com/bhoriuchi/vsphere-connect-rest/issues"
   },
   "devDependencies": {
-      "restify": "^4.0.3",
+      "restify": "^4.0.4",
       "express": "^4.13.4",
       "body-parser": "^1.15.0"
   },
   "dependencies": {
     "vsphere-connect": "git+https://github.com/bhoriuchi/vsphere-connect.git",
-    "lodash": "^4.2.1",
-    "bluebird": "^3.2.1",
+    "lodash": "^4.5.1",
+    "bluebird": "^3.3.3",
     "pluralize": "^1.2.1"
   },
   "scripts": {
