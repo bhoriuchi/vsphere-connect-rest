@@ -14,8 +14,9 @@ server.use(restify.bodyParser());
 
 // set the options
 vsphere.options({
-	ignoreSSL: true,
-	exclusive: true
+	ignoreSSL            : true,
+	exclusive            : true,
+	requireForceToDelete : true
 });
 
 // use the route generator to add all routes
